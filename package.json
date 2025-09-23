@@ -1,0 +1,12 @@
+{
+  "name": "app-builder-efs-test",
+  "version": "1.0.0",
+  "description": "Testing repository for app builder EFS functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["app-builder", "efs", "test"],
+  "author": "",
+  "license": "MIT"
+}
