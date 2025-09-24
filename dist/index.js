@@ -14,9 +14,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ComplyCubeService = void 0;
+exports.AMLScreeningService = exports.ComplyCubeService = void 0;
 var complycube_1 = require("./services/complycube");
 Object.defineProperty(exports, "ComplyCubeService", { enumerable: true, get: function () { return complycube_1.ComplyCubeService; } });
+var aml_screening_1 = require("./services/aml-screening");
+Object.defineProperty(exports, "AMLScreeningService", { enumerable: true, get: function () { return aml_screening_1.AMLScreeningService; } });
 __exportStar(require("./services/complycube"), exports);
+__exportStar(require("./services/aml-screening"), exports);
 __exportStar(require("./types/complycube"), exports);
 //# sourceMappingURL=index.js.map

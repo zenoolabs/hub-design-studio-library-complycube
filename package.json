@@ -1,13 +1,14 @@
 {
   "name": "hub-design-studio-library-complycube",
   "version": "1.0.0",
-  "description": "Hub Design Studio Library - ComplyCube company lookup integration",
+  "description": "Hub Design Studio Library - ComplyCube company lookup and AML screening integration",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
     "dev": "ts-node src/examples/complycube-usage.ts",
+    "dev:aml": "ts-node src/examples/aml-screening-usage.ts",
     "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +17,8 @@
     "library",
     "complycube",
     "company-lookup",
+    "aml-screening",
+    "compliance",
     "api",
     "typescript"
   ],
