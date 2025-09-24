@@ -1,12 +1,25 @@
 {
-  "name": "app-builder-efs-test",
+  "name": "design-studio-complycube",
   "version": "1.0.0",
-  "description": "Testing repository for app builder EFS functionality",
-  "main": "index.js",
+  "description": "ComplyCube company lookup integration for Design Studio",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "ts-node src/examples/complycube-usage.ts",
+    "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["app-builder", "efs", "test"],
+  "keywords": ["design-studio", "complycube", "company-lookup", "api", "typescript"],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
