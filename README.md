@@ -1,6 +1,6 @@
-# Design Studio - ComplyCube Integration
+# Hub Design Studio Library - ComplyCube
 
-A TypeScript integration for ComplyCube's company lookup API, designed for use with Design Studio.
+A TypeScript integration library for ComplyCube's company lookup API, designed for use with Hub Design Studio.
 
 ## Features
 
@@ -8,7 +8,7 @@ A TypeScript integration for ComplyCube's company lookup API, designed for use w
 - **Error handling**: Robust error handling with detailed error codes and messages
 - **Configurable**: Flexible configuration options with environment variable support
 - **Validated responses**: Built-in data validation and completeness checking
-- **Design Studio ready**: Pre-configured transformations for Design Studio workflows
+- **Hub Design Studio ready**: Pre-configured transformations for Hub Design Studio workflows
 
 ## Installation
 
@@ -52,7 +52,7 @@ if (result.error) {
 }
 ```
 
-### Design Studio Integration
+### Hub Design Studio Integration
 
 ```typescript
 import { integrateWithDesignStudio } from './src/examples/complycube-usage';
@@ -60,7 +60,7 @@ import { integrateWithDesignStudio } from './src/examples/complycube-usage';
 const result = await integrateWithDesignStudio('company-id');
 
 if (result.status === 'success') {
-  // Use result.data in your Design Studio workflow
+  // Use result.data in your Hub Design Studio workflow
   console.log('Company info:', result.data.companyInfo);
   console.log('Address:', result.data.address);
   console.log('Stakeholders:', result.data.stakeholders);

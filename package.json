@@ -1,7 +1,7 @@
 {
-  "name": "design-studio-complycube",
+  "name": "hub-design-studio-library-complycube",
   "version": "1.0.0",
-  "description": "ComplyCube company lookup integration for Design Studio",
+  "description": "Hub Design Studio Library - ComplyCube company lookup integration",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["design-studio", "complycube", "company-lookup", "api", "typescript"],
+  "keywords": ["hub-design-studio", "library", "complycube", "company-lookup", "api", "typescript"],
   "author": "",
   "license": "MIT",
   "devDependencies": {
