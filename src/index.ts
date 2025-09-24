@@ -21,13 +21,7 @@ export {
   IndustryCode
 } from './types/complycube';
 
-// Export examples for reference
-export {
-  lookupCompany,
-  lookupMultipleCompanies,
-  integrateWithDesignStudio,
-  complyCubeService
-} from './examples/complycube-usage';
+// Examples available in examples/ directory for reference
 
 // Re-export for convenience
 export * from './services/complycube';

@@ -7,7 +7,7 @@ import { ComplyCubeConfig } from '../types/complycube';
 
 // Configuration
 const config: ComplyCubeConfig = {
-  apiKey: process.env.COMPLYCUBE_API_KEY || 'your-api-key-here',
+  apiKey: (typeof process !== 'undefined' ? process.env.COMPLYCUBE_API_KEY : undefined) || 'your-api-key-here',
   baseUrl: 'https://api.complycube.com/v1', // Optional: defaults to this
   timeout: 15000 // Optional: 15 seconds timeout
 };
