@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Company Lookup Response",
+  "description": "Response structure for ComplyCube company lookup",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique company identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Registered company name"
+    },
+    "registrationNumber": {
+      "type": "string",
+      "description": "Company registration number"
+    },
+    "incorporationCountry": {
+      "type": "string",
+      "description": "Country of incorporation"
+    },
+    "incorporationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of incorporation (YYYY-MM-DD)"
+    },
+    "incorporationType": {
+      "type": "string",
+      "description": "Type of company incorporation"
+    },
+    "address": {
+      "type": "object",
+      "description": "Structured company address",
+      "properties": {
+        "line1": { "type": "string" },
+        "line2": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Company status"
+    },
+    "sourceUrl": {
+      "type": "string",
+      "description": "Source of company data"
+    },
+    "owners": {
+      "type": "array",
+      "description": "List of company owners",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "percentage": { "type": "number" },
+          "type": { "type": "string" }
+        }
+      }
+    },
+    "officers": {
+      "type": "array",
+      "description": "List of company officers",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "appointedDate": { "type": "string" }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Record creation timestamp"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Record last update timestamp"
+    }
+  },
+  "required": ["id", "name"]
+}

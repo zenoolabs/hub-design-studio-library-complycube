@@ -1,0 +1,11 @@
+{
+  "name": "ComplyCube",
+  "description": "ComplyCube integration library for proof of address verification, company lookup, and AML screening",
+  "faqUrl": "https://docs.complycube.com/",
+  "entries": {
+    "main": "./src/index.main.ts",
+    "interactions": "./src/index.interactions.ts",
+    "exports": "./src/index.exports.ts",
+    "plugins": "./src/index.plugins.ts"
+  }
+}

@@ -1,33 +1,64 @@
 {
-  "name": "hub-design-studio-library-complycube",
+  "name": "@zenoo-libraries/complycube_platform",
   "version": "1.0.0",
-  "description": "Hub Design Studio Library - ComplyCube company lookup and AML screening integration",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "dev": "ts-node src/examples/complycube-usage.ts",
-    "dev:aml": "ts-node src/examples/aml-screening-usage.ts",
-    "type-check": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "ComplyCube integration library for proof of address verification, company lookup, and AML screening",
+  "main": "index.js",
+  "types": "./build/types/index.main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/types/index.main.d.ts",
+      "default": "./build/library/library.js"
+    },
+    "./functions": {
+      "types": "./build/types/index.functions.d.ts",
+      "default": "./build/library/functions.js"
+    }
   },
+  "scripts": {
+    "build": "library-build --prod",
+    "build:watch": "library-build --watch",
+    "dev-server": "library-dev-server",
+    "start": "concurrently -n dev-server,build \"npm run dev-server\" \"npm run build:watch\"",
+    "lint": "eslint \"./\" --ext .ts,.tsx --ignore-pattern **/build/",
+    "lint:fix": "eslint \"./\" --fix --ext .ts,.tsx --ignore-pattern **/build/",
+    "dev": "npm run start"
+  },
+  "publishConfig": {
+    "@zenoo-libraries:registry": "https://nexus.zenoo.com/repository/npm-review/"
+  },
+  "files": [
+    "build/",
+    "package.json",
+    "README.md",
+    "manifest.json"
+  ],
   "keywords": [
     "hub-design-studio",
     "library",
     "complycube",
+    "proof-of-address",
     "company-lookup",
     "aml-screening",
     "compliance",
     "api",
     "typescript"
   ],
-  "author": "",
+  "author": "Zenoo",
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^20.19.17",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+  "dependencies": {
+    "@david.uhlir/package-version": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "@zenoo-libraries/common": "~1.2.11",
+    "@zenoo-libraries/sdk": "~5.7.15",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.2.1"
   },
   "engines": {
     "node": ">=18.0.0"

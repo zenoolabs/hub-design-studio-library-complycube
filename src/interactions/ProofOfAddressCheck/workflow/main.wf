@@ -1,0 +1,19 @@
+input client_id from attributes.clientId
+input document_id from attributes.documentId
+
+function('proof-of-address-check@complycube') {
+  client_id: client_id
+  document_id: document_id
+}
+.onSuccess { result ->
+  decision('success', result)
+}
+.onBusinessLogicError('REVIEW') { result ->
+  decision('review', result)
+}
+.onBusinessLogicError('FAILED') { result ->
+  decision('failed', result)
+}
+.onError { result ->
+  decision('error', result)
+}
