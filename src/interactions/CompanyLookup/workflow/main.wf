@@ -1,0 +1,14 @@
+input company_id from attributes.companyId
+
+function('get-company-details@complycube') {
+  company_id: company_id
+}
+.onSuccess { result ->
+  decision('success', result)
+}
+.onBusinessLogicError('COMPANY_NOT_FOUND') { result ->
+  decision('not_found', result)
+}
+.onError { result ->
+  decision('error', result)
+}

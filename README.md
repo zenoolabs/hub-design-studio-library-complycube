@@ -1,71 +1,62 @@
 # Hub Design Studio Library - ComplyCube
 
-A TypeScript integration library for ComplyCube's company lookup API, designed for use with Hub Design Studio.
+A complete Design Studio library for ComplyCube integration providing visual workflow components for proof of address verification, company lookup, and AML screening.
 
 ## Features
 
+- **Complete Design Studio Integration**: Three visual interactions for ComplyCube services
+- **Proof of Address Verification**: Document verification with address extraction
+- **Company Lookup**: Detailed company information retrieval
+- **AML Screening**: Anti-Money Laundering and PEP screening
 - **Type-safe**: Full TypeScript support with comprehensive type definitions
-- **Error handling**: Robust error handling with detailed error codes and messages
-- **Configurable**: Flexible configuration options with environment variable support
-- **Validated responses**: Built-in data validation and completeness checking
-- **Hub Design Studio ready**: Pre-configured transformations for Hub Design Studio workflows
+- **Visual Workflows**: Drag-and-drop components for Design Studio
+- **Error handling**: Robust error handling with proper visual connectors
 
-## Installation
+## Interactions
 
-```bash
-npm install
-```
+This library provides three visual interactions for Design Studio workflows:
+
+### 1. Proof of Address Check
+- **Purpose**: Verify proof of address documents
+- **Inputs**: Client ID, Document ID
+- **Outputs**: Verified (green), Needs Review (orange), Failed (red), Error (red)
+- **Hub Plugin**: `proof-of-address-check@complycube`
+
+### 2. Company Lookup
+- **Purpose**: Retrieve detailed company information
+- **Inputs**: Company ID
+- **Outputs**: Found (green), Not Found (orange), Error (red)
+- **Hub Plugin**: `get-company-details@complycube`
+
+### 3. AML Screening
+- **Purpose**: Perform AML and PEP screening
+- **Inputs**: Client ID, Screening Type, Search Mode
+- **Outputs**: Clear (green), Needs Attention (orange), Not Processed (orange), Error (red)
+- **Hub Plugin**: `create-screening-check@complycube`
 
 ## Configuration
 
-1. Copy the environment template:
-```bash
-cp .env.example .env
-```
+The library requires ComplyCube API configuration:
 
-2. Add your ComplyCube API key:
-```env
-COMPLYCUBE_API_KEY=your_actual_api_key_here
-```
-
-## Usage
-
-### Basic Usage
-
-```typescript
-import { ComplyCubeService, ComplyCubeConfig } from './src';
-
-const config: ComplyCubeConfig = {
-  apiKey: process.env.COMPLYCUBE_API_KEY!,
-  timeout: 15000 // Optional: 15 second timeout
-};
-
-const complyCube = new ComplyCubeService(config);
-
-// Lookup a company
-const result = await complyCube.getCompanyDetails('company-id');
-
-if (result.error) {
-  console.error('Error:', result.error.message);
-} else {
-  console.log('Company:', result.data?.name);
+```json
+{
+  "apiKey": "your_complycube_api_key",
+  "baseUrl": "https://api.complycube.com/v1"
 }
 ```
 
-### Hub Design Studio Integration
+## Installation in Design Studio
 
-```typescript
-import { integrateWithDesignStudio } from './src/examples/complycube-usage';
+1. Install the library in your Design Studio environment
+2. Configure ComplyCube API credentials
+3. Use the visual interactions in your workflows
 
-const result = await integrateWithDesignStudio('company-id');
+## Hub Plugin Dependency
 
-if (result.status === 'success') {
-  // Use result.data in your Hub Design Studio workflow
-  console.log('Company info:', result.data.companyInfo);
-  console.log('Address:', result.data.address);
-  console.log('Stakeholders:', result.data.stakeholders);
-}
-```
+This library depends on the ComplyCube Hub plugin:
+- **Repository**: `zenoolabs/hub-plugin-complycube-proof-of-address`
+- **Version**: `0.1.0`
+- **Functions**: `proof-of-address-check`, `get-company-details`, `create-screening-check`
 
 ## API Response Structure
 

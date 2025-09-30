@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AML Screening Response",
+  "description": "Response structure for ComplyCube AML screening check",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the screening check"
+    },
+    "clientId": {
+      "type": "string",
+      "description": "The client ID that was screened"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["standard_screening_check", "extensive_screening_check"],
+      "description": "Type of screening check performed"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["clear", "attention", "not_processed"],
+      "description": "Overall outcome of the AML screening"
+    },
+    "breakdown": {
+      "type": "object",
+      "description": "Detailed breakdown of screening results",
+      "properties": {
+        "summary": {
+          "type": "object",
+          "properties": {
+            "totalMatches": { "type": "number" },
+            "pepMatches": { "type": "number" },
+            "watchlistMatches": { "type": "number" },
+            "adverseMediaMatches": { "type": "number" }
+          }
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "confidence": { "type": "number" },
+              "category": { "type": "string" },
+              "description": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the screening was created"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the screening was completed"
+    }
+  },
+  "required": ["id", "clientId", "type", "outcome", "breakdown"]
+}

@@ -1,0 +1,12 @@
+src/
+examples/
+.git/
+.github/
+*.log
+node_modules/
+.env*
+!.env.example
+tsconfig.json
+.prettierrc.js
+.prettierignore
+.eslintrc.js

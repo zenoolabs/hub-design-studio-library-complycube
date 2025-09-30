@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ComplyCube Configuration",
+  "description": "Configuration parameters for ComplyCube API integration",
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "type": "string",
+      "title": "API Key",
+      "description": "Your ComplyCube API key",
+      "minLength": 1
+    },
+    "baseUrl": {
+      "type": "string",
+      "title": "Base URL",
+      "description": "ComplyCube API base URL (optional, defaults to production)",
+      "default": "https://api.complycube.com/v1",
+      "format": "uri"
+    }
+  },
+  "required": ["apiKey"],
+  "additionalProperties": false
+}

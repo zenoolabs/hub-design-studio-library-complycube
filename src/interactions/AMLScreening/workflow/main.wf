@@ -1,0 +1,29 @@
+input client_id from attributes.clientId
+input screening_type from attributes.screeningType default 'standard_screening_check'
+input search_mode from attributes.searchMode default 'fuzzy'
+
+function('create-screening-check@complycube') {
+  client_id: client_id
+  type: screening_type
+  search_mode: search_mode
+}
+.onSuccess { result ->
+  def outcome = result.outcome?.toString()?.toLowerCase()
+
+  switch (outcome) {
+    case 'clear':
+      decision('clear', result)
+      break
+    case 'attention':
+      decision('attention', result)
+      break
+    case 'not_processed':
+      decision('not_processed', result)
+      break
+    default:
+      decision('attention', result)
+  }
+}
+.onError { result ->
+  decision('error', result)
+}
